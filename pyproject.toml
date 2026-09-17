@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "origin-plot-assistant"
+version = "0.1.0"
+description = "Windows CSV plotting with OpenCode, an OpenAI-compatible API, and Origin COM"
+readme = "PACKAGE_GUIDE.md"
+requires-python = ">=3.11"
+dependencies = ["pywin32>=311; sys_platform == 'win32'", "mcp>=1.27.2,<2"]
+classifiers = ["Operating System :: Microsoft :: Windows", "Programming Language :: Python :: 3"]
+
+[project.scripts]
+origin-plot = "origin_plot_assistant.__main__:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
